@@ -1,0 +1,43 @@
+services:
+  fxserver:
+    image: traskin/fxserver:latest
+    ports:
+      - 30120:30120/tcp
+      - 30120:30120/udp
+      - 40120:40120
+    volumes:
+      - ./${VAR}/txData:/txData
+      # - ./${VAR}/[resources]:/txData/[server]/resources/
+      # - ./[cfxserver]:/txData/[server]/resources/[cfxserver]/
+    links:
+      - mariadb
+    depends_on:
+      - mariadb
+      - phpmyadmin
+  mariadb:
+      image: mariadb:10.5.16
+      command: --default-authentication-plugin=mysql_native_password
+      restart: always
+      ports:
+          - "3306:3306"
+      volumes:
+          - mariadbdata:/var/lib/mysql
+      environment:
+          - MYSQL_ROOT_PASSWORD=root
+          - MYSQL_DATABASE=${VAR}
+          - MYSQL_USER=user
+          - MYSQL_PASSWORD=root
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin:4.8.5
+      restart: always
+      depends_on:
+          - mariadb
+      environment:
+          - PMA_HOST=mariadb
+          - PMA_PORT=3306
+          - PMA_USER=user
+          - PMA_PASSWORD=root
+      ports:
+          - "3333:80"
+volumes:
+  mariadbdata:

@@ -1,0 +1,1 @@
+FROM traskin/fxserver:latest
