@@ -1,7 +1,10 @@
  ## FiveM Server Docker Container Generator
 
-Célja ennek a projectnek hogy olyan dockerizált környezetett tudjunk készíteni amiben több FiveM szervert lehet futtatni. Tehát tudjunk "ugrálni" a szerverek között relatív egyszerűen és tudjunk készíteni könnyedén újabb szervert.
+Célja ennek a projectnek hogy olyan dockerizált környezetett tudjunk készíteni amiben több FiveM szervert lehet futtatni. Tehát tudjunk "ugrálni" a szerverek között  relatív egyszerűen és tudjunk készíteni könnyedén újabb szervert.
 
+ ## Szükséges programok
+ - https://www.docker.com/products/docker-desktop/
+ - Windowson belül kell tölteni a **pythont**-t (Microsoft Áruház)
  ## Új szerver container létrehozása
  
  1. **create_server.bat** elindítása után adjunk meg egy szerver mappa nevet. (később ez lesz az adatbázis neve is).
