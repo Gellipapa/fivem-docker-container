@@ -39,6 +39,9 @@ Külső GUI-s adatbázis kezelő szoftver csatlakozáshoz szükséges adatok:
 
 Ha a fenti paramétereket megadtuk helyesen akkor feltudunk csatlakozni az adatbázisra külső szoftver segítségével.
 
+## FiveM chat build probléma
+Ha új szervert hozzunk létre és nem buildeli le elsőre a webpack a chat-et akkor a cache-t kell törölni majd 2-3x újraindítani a szervert és utána már jól lefogja buildelni a chatet. (Ez valószínűleg linux probléma a docker containerben)
+
 
  ## Készítők
  Gellipapa és Csontvazharcos  
