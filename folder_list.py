@@ -1,7 +1,15 @@
 import os
 import sys
 import subprocess
+import docker
+from tqdm import tqdm
 
+client = docker.from_env()
+container_list = [
+    container
+    for container in client.containers.list()
+    if container.attrs['Name'] not in ["/pgadmin","/postgres"]
+]
 
 folder_path = "./"
 folders = []
@@ -28,10 +36,20 @@ else:
             
         selected_folder_name = folders[selected_folder_num - 1]
         break
-
+try:
+    with open(f'./{selected_folder_name}/artifact_version.txt', 'r') as file:
+        os.environ['ARTIFACT'] = file.readline()
+except FileNotFoundError:
+    os.environ['ARTIFACT'] = "latest"
 
 print("A kiválasztott mappa neve:", selected_folder_name)
 os.environ['VAR'] = selected_folder_name
+
+if len(container_list) > 0:
+    print("Futó docker containerek:", *[container.attrs["Name"] for container in container_list])
+    for container in tqdm(container_list, desc = "Futó docker containerek leállítása folyamatban", unit = "container"):
+        container.stop()
+
 docker_command = f" docker-compose --project-name {selected_folder_name} up"
 
 try:
