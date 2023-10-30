@@ -1,12 +1,19 @@
  ## FiveM Server Docker Container Generator
 
-Célja ennek a projectnek hogy olyan dockerizált környezetett tudjunk készíteni amiben több FiveM szervert lehet futtatni. Tehát tudjunk "ugrálni" a szerverek között  relatív egyszerűen és tudjunk készíteni könnyedén újabb szervert.
+Célja ennek a projectnek hogy olyan dockerizált környezetet tudjunk készíteni amiben több FiveM szervert lehet futtatni. Tehát tudjunk "ugrálni" a szerverek között  relatív egyszerűen és tudjunk készíteni könnyedén újabb szervert.
 
  ## Szükséges programok
  - https://www.docker.com/products/docker-desktop/
  - Windowson belül kell tölteni a **pythont**-t (Microsoft Áruház)
+
+**Fontos hogy mi után le töltöttük a repository utána adjuk ki ezt a parancsot a konzolban hogy a szükséges python package letöltésre kerüljenek amelyet a rendszer használ.**
+
+**A parancs a következő:**
+
+### `pip install -r requirements.txt` 
+
  ## Új szerver container létrehozása
- 
+
  1. **create_server.bat** elindítása után adjunk meg egy szerver mappa nevet. (később ez lesz az adatbázis neve is).
  2. Elindul a txadmin telepítő, elnavigálunk a localhost:40120-ra és megadjuk a cmd ablakban megadott txAdmin azonosító kódot majd belépünk a txAdmin-ba.
  3. txAdmin-ba belépve a telepítő résznél válasszuk a ki a számunkra megfelelő templatett majd menjünk kattintsunk a next gombra.
@@ -41,6 +48,12 @@ Ha a fenti paramétereket megadtuk helyesen akkor feltudunk csatlakozni az adatb
 
 ## FiveM chat build probléma
 Ha új szervert hozzunk létre és nem buildeli le elsőre a webpack a chat-et akkor a cache-t kell törölni majd 2-3x újraindítani a szervert és utána már jól lefogja buildelni a chatet. (Ez valószínűleg linux probléma a docker containerben)
+
+## Új feature
+
+Most már megadható hogy melyik artifact legyen használva minden új szerver készítésnél van rá opció ha üresen hagyjuk akkor latest verziót fogja használni a rendszer. 
+
+Plusz bekerült a legutóbbi 10 verzió meg is jeleníti a konzol ami jelenleg elérhető mint artifact verzió. Így könnyítve a valid verziók keresését.
 
 
  ## Készítők
