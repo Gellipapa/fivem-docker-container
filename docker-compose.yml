@@ -22,8 +22,8 @@ services:
           - mariadbdata:/var/lib/mysql
       environment:
           - MYSQL_DATABASE=${FIVEM_SERVER_NAME}
-          - MYSQL_USER=root
-          - MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=1
+          - MYSQL_USER=user
+          - MYSQL_PASSWORD=root
   phpmyadmin:
       image: phpmyadmin/phpmyadmin:4.8.5
       restart: always
@@ -33,7 +33,7 @@ services:
           - PMA_HOST=mariadb
           - PMA_PORT=3306
           - PMA_USER=root
-          - PMA_PASSWORD=
+          - PMA_PASSWORD=root
       ports:
           - "3333:80"
 volumes:
