@@ -1,0 +1,11 @@
+{
+  "ENTER_FOLDER_NAME": "Enter the name of the new server: ",
+  "FOLDER_NAME_ALREADY_EXISTS": "A server folder with this name already exists. Please choose another.",
+  "AVAILABLE_ARTIFACT_VERSIONS": "These are the last 10 FiveM Artifact versions published:",
+  "ERROR_FETCHING_ARTIFACT_VERSIONS": "Something went wrong fetching available artifact versions.",
+  "SELECT_ARTIFACT_VERSION": "Enter the artifact version you want to use. You can also  use \"latest\" or \"recommended\": ",
+  "SHUTTING_DOWN_OTHER_FIVEM_SERVERS": "Shutting down other FiveM Server containers",
+  "INVALID_OPTION_CHOICE": "Invalid option, try again",
+  "SELECT_SERVER_TO_START": "Select which server you'd like to start",
+  "CHOICE": "Choice: "
+}

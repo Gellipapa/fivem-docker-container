@@ -1,0 +1,11 @@
+{
+    "ENTER_FOLDER_NAME": "Adja meg az új szerver nevét: ",
+    "FOLDER_NAME_ALREADY_EXISTS": "Már létezik egy ilyen nevű szervermappa. Kérem, válasszon másikat.",
+    "AVAILABLE_ARTIFACT_VERSIONS": "Ezek az utolsó 10 közzétett FiveM Artifact verziók:",
+    "ERROR_FETCHING_ARTIFACT_VERSIONS": "Hiba történt az elérhető artifact verziók lekérdezésekor.",
+    "SELECT_ARTIFACT_VERSION": "Adja meg a használni kívánt artifact verziót. Használhatja a \"legújabb\" vagy \"ajánlott\" opciót is: ",
+    "SHUTTING_DOWN_OTHER_FIVEM_SERVERS": "Az összes többi FiveM szerver konténer leállítása",
+    "INVALID_OPTION_CHOICE": "Érvénytelen opció, próbálja újra",
+    "SELECT_SERVER_TO_START": "Válassza ki, melyik szervert szeretné elindítani",
+    "CHOICE": "Választás: "
+}
