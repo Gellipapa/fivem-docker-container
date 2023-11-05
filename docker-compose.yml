@@ -1,14 +1,12 @@
 services:
   fxserver:
-    image: traskin/fxserver:latest
+    image: traskin/fxserver:${ARTIFACT_VERSION:-recommended}
     ports:
       - 30120:30120/tcp
       - 30120:30120/udp
       - 40120:40120
     volumes:
-      - ./${VAR}/txData:/txData
-      # - ./${VAR}/[resources]:/txData/[server]/resources/
-      # - ./[cfxserver]:/txData/[server]/resources/[cfxserver]/
+      - ./FiveM Servers/${FIVEM_SERVER_NAME}/txData:/txData
     links:
       - mariadb
     depends_on:
@@ -23,8 +21,7 @@ services:
       volumes:
           - mariadbdata:/var/lib/mysql
       environment:
-          - MYSQL_ROOT_PASSWORD=root
-          - MYSQL_DATABASE=${VAR}
+          - MYSQL_DATABASE=${FIVEM_SERVER_NAME}
           - MYSQL_USER=user
           - MYSQL_PASSWORD=root
   phpmyadmin:
@@ -35,7 +32,7 @@ services:
       environment:
           - PMA_HOST=mariadb
           - PMA_PORT=3306
-          - PMA_USER=user
+          - PMA_USER=root
           - PMA_PASSWORD=root
       ports:
           - "3333:80"

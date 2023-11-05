@@ -1,5 +1,5 @@
 
-python folder_list.py
+python start_server.py
 
 @REM setlocal EnableDelayedExpansion
 
